@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TGU Student Hub - Trợ Lý & Sổ Tay Sinh Viên TGU</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans pb-12" x-data="studentApp()">
+
+    <!-- HEADER / BANNER MAIN -->
+    <header class="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-900 text-white p-5 shadow-lg sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-yellow-400"></i> TGU Student Hub
+                </h1>
+                <p class="text-xs text-blue-100">Cẩm nang & Trợ lý học tập Sinh viên TGU</p>
+            </div>
+            <!-- Người sáng tạo Badge -->
+            <div class="bg-blue-800/80 border border-blue-400/30 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1.5">
+                <i class="fa-solid fa-code text-blue-300"></i>
+                <span>Tạo bởi: <strong class="text-yellow-300 font-semibold">ttma</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- THÔNG BÁO TỪ CHỐI BẢO LƯU PHÁP LÝ / LIÊN HỆ TRỰC TIẾP -->
+    <div class="max-w-5xl mx-auto px-4 mt-4">
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-3.5 rounded-r-lg shadow-sm text-xs md:text-sm text-amber-900 flex items-start gap-3">
+            <i class="fa-solid fa-triangle-exclamation text-amber-600 text-lg mt-0.5 shrink-0"></i>
+            <div>
+                <p class="font-bold text-amber-950">Lưu ý quan trọng & Khấn khoản miễn trừ pháp lý:</p>
+                <p class="mt-0.5">Ứng dụng được xây dựng độc lập bởi <strong>ttma</strong> nhằm mục đích hỗ trợ cá nhân cho sinh viên. Chúng tôi <strong>từ chối mọi trách nhiệm pháp lý</strong> liên quan đến tính chính xác tuyệt đối của thời khóa biểu chính thức hoặc thông báo thay đổi đột xuất từ Nhà trường. Mọi thắc mắc chính thức, giải quyết thủ tục hoặc xác nhận pháp lý, vui lòng <strong>liên hệ trực tiếp các Phòng/Ban chuyên môn</strong> của Trường Đại học Tiền Giang.</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- THÔNG TIN VĂN HÓA & LƯU Ý TRƯỜNG TGU (Khu vực thông tin chính) -->
+        <section class="md:col-span-3 bg-white rounded-xl shadow-md p-5 border border-slate-200">
+            <h2 class="text-lg font-bold text-blue-900 border-b pb-2 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-school text-blue-600"></i> Thông Tin Văn Hóa & Quy Định Trường (Cơ sở TCN)
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                <!-- Đồng phục & Chào cờ -->
+                <div class="p-3 bg-blue-50/50 rounded-lg border border-blue-100">
+                    <span class="font-bold text-blue-800 flex items-center gap-2">
+                        <i class="fa-solid fa-shirt text-blue-600"></i> Đồng phục & Điểm danh
+                    </span>
+                    <ul class="list-disc list-inside text-xs mt-2 space-y-1 text-slate-700">
+                        <li>Đồng phục nghiêm túc, đi giày hoặc dép có quai sau.</li>
+                        <li>Có lực lượng <strong>Văn minh học đường</strong> (sao đỏ đại học) kiểm tra tác phong.</li>
+                        <li>Sáng <strong>Thứ 2 hàng tuần</strong> tập trung chào cờ và điểm danh đầu giờ.</li>
+                    </ul>
+                </div>
+
+                <!-- Cổng & Nhà xe -->
+                <div class="p-3 bg-green-50/50 rounded-lg border border-green-100">
+                    <span class="font-bold text-green-800 flex items-center gap-2">
+                        <i class="fa-solid fa-motorcycle text-green-600"></i> Cổng & Bãi gửi xe
+                    </span>
+                    <ul class="list-disc list-inside text-xs mt-2 space-y-1 text-slate-700">
+                        <li>Trường có Cổng chính và Cổng phụ.</li>
+                        <li><strong>Bãi gửi xe sinh viên nằm ở Cổng phụ.</strong></li>
+                        <li>Nên đi học sớm nếu muốn đỗ xe ở khu vực có mái che.</li>
+                    </ul>
+                </div>
+
+                <!-- Thang máy & Tầng học -->
+                <div class="p-3 bg-purple-50/50 rounded-lg border border-purple-100">
+                    <span class="font-bold text-purple-800 flex items-center gap-2">
+                        <i class="fa-solid fa-elevator text-purple-600"></i> Thang máy & Hướng dẫn Tầng
+                    </span>
+                    <ul class="list-disc list-inside text-xs mt-2 space-y-1 text-slate-700">
+                        <li>Mỗi khu nhà đều trang bị thang máy hiện đại.</li>
+                        <li><strong>Quy tắc đếm tầng (Khu C, D):</strong> Tầng G = Tầng 1; Tầng 1 = Tầng 2; Tầng 2 = Tầng 3... (VD: Phòng D503 ở tầng 5 thang máy/tầng 6 thực tế).</li>
+                    </ul>
+                </div>
+
+                <!-- Tiện ích Wifi & Nước uống -->
+                <div class="p-3 bg-amber-50/50 rounded-lg border border-amber-100">
+                    <span class="font-bold text-amber-800 flex items-center gap-2">
+                        <i class="fa-solid fa-wifi text-amber-600"></i> Wifi & Máy nước uống
+                    </span>
+                    <ul class="list-disc list-inside text-xs mt-2 space-y-1 text-slate-700">
+                        <li>Sóng Wifi phủ rộng khắp tất cả các dãy nhà trong trường.</li>
+                        <li>Mỗi khu nhà đều có cây máy nước lọc nóng/lạnh miễn phí phục vụ sinh viên.</li>
+                    </ul>
+                </div>
+
+                <!-- Thư viện -->
+                <div class="p-3 bg-rose-50/50 rounded-lg border border-rose-100">
+                    <span class="font-bold text-rose-800 flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-rose-600"></i> Thư viện
+                    </span>
+                    <p class="text-xs mt-2 text-slate-700">Mở cửa từ <strong>07:00 – 17:00</strong> (T2 đến T6).</p>
+                    <a href="http://thuvien.tgu.edu.vn/" target="_blank" class="inline-block mt-2 text-xs text-rose-600 font-semibold underline hover:text-rose-800">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Truy cập Cổng Thư viện TGU
+                    </a>
+                </div>
+
+                <!-- Tân sinh viên -->
+                <div class="p-3 bg-indigo-50/50 rounded-lg border border-indigo-100">
+                    <span class="font-bold text-indigo-800 flex items-center gap-2">
+                        <i class="fa-solid fa-user-graduate text-indigo-600"></i> Dành cho Tân Sinh Viên
+                    </span>
+                    <ul class="list-disc list-inside text-xs mt-2 space-y-1 text-slate-700">
+                        <li>Bắt buộc tham gia kiểm tra năng lực Tiếng Anh đầu vào để xếp lớp.</li>
+                        <li>Tham gia Tuần sinh hoạt công dân đầu khóa (có bài thu hoạch buổi cuối).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MÔ-ĐUN 1: BỘ TỰ ĐỘNG SẮP XẾP LỊCH HỌC -->
+        <section class="md:col-span-2 bg-white rounded-xl shadow-md p-5 border border-slate-200">
+            <h2 class="text-lg font-bold text-blue-900 border-b pb-2 mb-4 flex items-center justify-between">
+                <span><i class="fa-regular fa-calendar-check text-blue-600"></i> Sắp Xếp Lịch Học & Thời Khóa Biểu</span>
+                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-normal">Công cụ Smart</span>
+            </h2>
+
+            <!-- Form Nhập môn học -->
+            <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-4">
+                <p class="text-xs font-semibold text-slate-600 mb-2">Thêm môn học vào danh sách xếp lịch:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm mb-3">
+                    <input type="text" x-model="newSubject.name" placeholder="Tên môn học (VD: Pháp luật)" class="p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                    <select x-model="newSubject.day" class="p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="Thứ 2">Thứ 2</option>
+                        <option value="Thứ 3">Thứ 3</option>
+                        <option value="Thứ 4">Thứ 4</option>
+                        <option value="Thứ 5">Thứ 5</option>
+                        <option value="Thứ 6">Thứ 6</option>
+                        <option value="Thứ 7">Thứ 7</option>
+                    </select>
+                    <input type="text" x-model="newSubject.room" placeholder="Phòng học (VD: D403, B201)" class="p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <button @click="addSubject()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-md transition text-xs sm:text-sm">
+                    <i class="fa-solid fa-plus"></i> Thêm Môn Vào Lịch
+                </button>
+            </div>
+
+            <!-- Danh sách Lịch học đã xếp -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 border-b text-slate-700">
+                            <th class="p-2.5">Thứ</th>
+                            <th class="p-2.5">Môn Học</th>
+                            <th class="p-2.5">Phòng Học</th>
+                            <th class="p-2.5">Hướng Dẫn Lên Phòng</th>
+                            <th class="p-2.5 text-center">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template x-for="(sub, index) in scheduleList" :key="index">
+                            <tr class="border-b hover:bg-slate-50">
+                                <td class="p-2.5 font-semibold text-blue-900" x-text="sub.day"></td>
+                                <td class="p-2.5 font-medium" x-text="sub.name"></td>
+                                <td class="p-2.5"><span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-200 font-mono" x-text="sub.room"></span></td>
+                                <td class="p-2.5 text-slate-500 italic" x-text="getRoomGuide(sub.room)"></td>
+                                <td class="p-2.5 text-center">
+                                    <button @click="removeSubject(index)" class="text-red-500 hover:text-red-700"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                        </template>
+                        <template x-if="scheduleList.length === 0">
+                            <tr>
+                                <td colspan="5" class="p-4 text-center text-slate-400 italic">Chưa có môn học nào được thêm vào lịch.</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Gợi ý thông minh -->
+            <div x-show="scheduleList.length > 0" class="mt-4 p-3 bg-indigo-50 border border-indigo-100 rounded-lg text-xs text-indigo-900">
+                <span class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-lightbulb text-yellow-500"></i> Gợi ý thông minh từ Trợ Lý:</span>
+                <p class="mt-1">Bạn đã xếp <strong x-text="scheduleList.length"></strong> môn học. Đừng quên chuẩn bị tài liệu bài học, đi học trước 15 phút để chủ động gửi xe ở Cổng phụ nhé!</p>
+            </div>
+        </section>
+
+        <!-- MÔ-ĐUN 2: TỪ ĐIỂN THUẬT NGỮ ĐẠI HỌC -->
+        <section class="bg-white rounded-xl shadow-md p-5 border border-slate-200">
+            <h2 class="text-lg font-bold text-blue-900 border-b pb-2 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-book text-blue-600"></i> Tra Cứu Thuật Ngữ
+            </h2>
+            <div class="mb-3">
+                <input type="text" x-model="searchJargon" placeholder="Tìm thuật ngữ (VD: Tín chỉ, Tiết học...)" class="w-full p-2 text-xs border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+            </div>
+            <div class="space-y-3 max-h-[350px] overflow-y-auto pr-1">
+                <template x-for="item in filteredJargon" :key="item.term">
+                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                        <span class="font-bold text-xs text-blue-800" x-text="item.term"></span>
+                        <p class="text-xs text-slate-600 mt-1" x-text="item.definition"></p>
+                        <p class="text-[11px] text-indigo-600 mt-1 italic" x-text="'Ví dụ: ' + item.example"></p>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <!-- LỜI CẢM ƠN VÀ LIÊN HỆ -->
+        <section class="md:col-span-3 bg-slate-800 text-slate-300 rounded-xl p-5 shadow-inner mt-2">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <div>
+                    <p class="font-bold text-white text-sm">TGU Student Hub System</p>
+                    <p class="mt-1 text-slate-400">Ứng dụng được thiết kế và xây dựng bởi tác giả: <strong class="text-yellow-400">ttma</strong></p>
+                    <p class="text-slate-400">Mọi đóng góp ý kiến hoặc phản hồi liên hệ trực tiếp cho nhà phát triển qua hệ thống web.</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-slate-400">Cần hỗ trợ thủ tục chính thức của trường?</p>
+                    <p class="text-yellow-300 font-semibold mt-0.5">Vui lòng liên hệ trực tiếp các Phòng/Ban TGU</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ALPINE.JS LOGIC SCRIPT -->
+    <script>
+        function studentApp() {
+            return {
+                // Người tạo
+                creator: 'ttma',
+                searchJargon: '',
+
+                // Dữ liệu môn học
+                newSubject: { name: '', day: 'Thứ 2', room: '' },
+                scheduleList: JSON.parse(localStorage.getItem('tgu_schedule') || '[{"name": "Pháp Luật Đại Cương", "day": "Thứ 2", "room": "D403"}]'),
+
+                // Danh sách Thuật ngữ
+                jargonList: [
+                    { term: 'Tiết học (Period)', definition: 'Đơn vị thời gian học tập, mỗi tiết kéo dài khoảng 45 - 50 phút.', example: 'Một buổi sáng học 4 tiết từ 7h00 đến 11h00.' },
+                    { term: 'Tín chỉ (Credit)', definition: 'Đơn vị đo lường khối lượng học tập. 1 tín chỉ tương đương 15 tiết lý thuyết trên lớp.', example: 'Môn 3 tín chỉ = 45 tiết học.' },
+                    { term: 'Văn minh học đường', definition: 'Đội ngũ kiểm tra tác phong, đồng phục, thẻ sinh viên của nhà trường.', example: 'Đảm bảo mang thẻ sinh viên và mặc đồng phục sáng thứ 2.' },
+                    { term: 'Học phần tiên quyết', definition: 'Môn học bắt buộc bạn phải học và thi đạt trước khi được đăng ký môn học tiếp theo.', example: 'Phải qua môn Triết học mới được học Chủ nghĩa xã hội khoa học.' },
+                    { term: 'GPA / CPA', definition: 'Điểm trung bình đánh giá kết quả học tập theo học kỳ hoặc toàn khóa học.', example: 'GPA đạt 3.2/4.0 là xếp loại Giỏi.' }
+                ],
+
+                // Thêm môn học
+                addSubject() {
+                    if(!this.newSubject.name || !this.newSubject.room) {
+                        alert('Vui lòng nhập đầy đủ Tên môn và Phòng học!');
+                        return;
+                    }
+                    this.scheduleList.push({...this.newSubject});
+                    localStorage.setItem('tgu_schedule', JSON.stringify(this.scheduleList));
+                    this.newSubject.name = '';
+                    this.newSubject.room = '';
+                },
+
+                // Xóa môn học
+                removeSubject(index) {
+                    this.scheduleList.splice(index, 1);
+                    localStorage.setItem('tgu_schedule', JSON.stringify(this.scheduleList));
+                },
+
+                // Hướng dẫn đi đến phòng học (dựa theo quy tắc thang máy TGU)
+                getRoomGuide(room) {
+                    if(!room) return '';
+                    const r = room.toUpperCase();
+                    if(r.startsWith('C') || r.startsWith('D')) {
+                        const floorNum = r.substring(1, 2);
+                        if(!isNaN(floorNum)) {
+                            const elevatorBtn = parseInt(floorNum) - 1;
+                            return `Dãy ${r.charAt(0)}: Bấm thang máy Tầng ${elevatorBtn > 0 ? elevatorBtn : 'G'}`;
+                        }
+                    } else if(r.startsWith('B')) {
+                        return `Giảng đường B: Đi cầu thang bộ/thang máy theo tầng tương ứng.`;
+                    }
+                    return 'Lên theo chỉ dẫn sơ đồ khu nhà.';
+                },
+
+                // Lọc thuật ngữ
+                get filteredJargon() {
+                    if(!this.searchJargon) return this.jargonList;
+                    return this.jargonList.filter(j => 
+                        j.term.toLowerCase().includes(this.searchJargon.toLowerCase()) || 
+                        j.definition.toLowerCase().includes(this.searchJargon.toLowerCase())
+                    );
+                }
+            }
+        }
+    </script>
+</body>
+</html>
